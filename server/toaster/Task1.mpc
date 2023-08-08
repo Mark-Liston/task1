@@ -1,0 +1,36 @@
+// Task1.mpc
+
+project(*idl): taoidldefaults {
+	idlflags += -Sp
+	IDL_Files {
+		Task1.idl
+	}
+	custom_only = 1
+}
+
+project(*Server): taoserver {
+	after += *idl
+	Source_Files {
+		servant.cpp
+		Toaster.cpp
+	}
+	Source_Files {
+		Task1C.cpp
+		Task1S.cpp
+	}
+	IDL_Files {
+	}
+}
+
+project(*Client): taoclient, taoexe, portableserver {
+	after += *idl
+	Source_Files {
+		client.cpp
+	}
+	Source_Files {
+		Task1C.cpp
+		Task1S.cpp
+	}
+	IDL_Files {
+	}
+}

@@ -1,0 +1,17 @@
+module Task1
+{
+	interface Toaster
+	{
+		// For if the toaster catches on fire from toast reaching maximum
+		// colour.
+		exception On_Fire{};
+
+		// Puts toast in toaster and starts toasting (increasing toast colour).
+		boolean	insert_toast() raises (On_Fire);
+		// Removes toast from toaster and stops toasting.
+		boolean eject_toast() raises (On_Fire);
+
+		// Returns toast colour.
+		short	get_toast_colour();
+	};
+};
