@@ -1,4 +1,4 @@
-// server.mjs
+// server.js
 
 import * as http from "http";
 import * as url from "url";

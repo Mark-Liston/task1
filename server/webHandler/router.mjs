@@ -12,6 +12,6 @@ export function route(path, handle, request, response)
 	}
 	else
 	{
-		handle["/reqFile"](("../client" + decodeURI(path)), response);
+		handle["/reqFile"](("../../client" + decodeURI(path)), response);
 	}
 }

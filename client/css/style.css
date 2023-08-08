@@ -1,0 +1,25 @@
+body
+{
+	margin: 50px;
+	font-family: Calibri, sans-serif;
+	background: black;
+	color: white;
+}
+
+button
+{
+	padding: 10px;
+	font-size: 12pt;
+	background: white;
+	border: none;
+}
+
+button:active
+{
+	background: lightgray;
+}
+
+#toastColour
+{
+	font-size: 50pt;
+}
