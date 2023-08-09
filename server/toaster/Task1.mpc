@@ -11,7 +11,7 @@ project(*idl): taoidldefaults {
 project(*Server): taoserver {
 	after += *idl
 	Source_Files {
-		servant.cpp
+		server.cpp
 		Toaster.cpp
 	}
 	Source_Files {
