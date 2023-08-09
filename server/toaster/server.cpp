@@ -2,8 +2,6 @@
 
 #include "Toaster.h"
 #include <ace/streams.h>
-//#include <orbsvcs/CosNamingC.h>
-
 
 void init_corba(int argc, char * argv[], CORBA::ORB_var & orb, PortableServer::POA_var & poa);
 bool write_ior_to_file(char * path, CORBA::String_var ior);
@@ -24,28 +22,9 @@ int main(int argc, char * argv[])
 		// Activates it to obtain the object reference.
 		Task1::Toaster_var toaster = toaster_impl._this();
 
-		
-		//// Gets reference to the Naming Service and narrows it into a usable
-		//// object.
-		//CORBA::Object_var naming_context_object =
-		//	orb->resolve_initial_references("NameService");
-		//CosNaming::NamingContext_var naming_context =
-		//	CosNaming::NamingContext::_narrow(naming_context_object.in());
-		//
-		//// Creates a name object to store the toaster object's name.
-		//CosNaming::Name name(1);
-		//name.length(1);
-		//// Initialises name of object.
-		//name[0].id = CORBA::string_dup("Toaster");
-		//
-		//// Registers the object reference in the naming service. Uses rebind()
-		//// rather than bind() to prevent failure in the event that there is
-		//// already any data there.
-		//naming_context->rebind(name, toaster.in());
-
-
 		// Converts the object reference to an IOR string.
 		CORBA::String_var ior = orb->object_to_string(toaster.in());
+		// Writes IOR string to file.
 		char file_name[] = "ior_file";
 		if (!write_ior_to_file(file_name, ior))
 		{
