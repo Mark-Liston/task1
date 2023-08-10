@@ -58,6 +58,5 @@ bool Toaster::eject_toast()
 
 short Toaster::get_toast_colour()
 {
-	return 23;
 	return toast_colour;
 }
