@@ -3,7 +3,7 @@
 project(*idl): taoidldefaults {
 	idlflags += -Sp
 	IDL_Files {
-		Task1.idl
+		../Task1.idl
 	}
 	custom_only = 1
 }
@@ -29,7 +29,7 @@ project(*Client): taoclient, taoexe, portableserver {
 	}
 	Source_Files {
 		Task1C.cpp
-		Task1S.cpp
+		//Task1S.cpp
 	}
 	IDL_Files {
 	}

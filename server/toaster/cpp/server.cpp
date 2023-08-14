@@ -25,7 +25,7 @@ int main(int argc, char * argv[])
 		// Converts the object reference to an IOR string.
 		CORBA::String_var ior = orb->object_to_string(toaster.in());
 		// Writes IOR string to file.
-		char file_name[] = "ior_file";
+		char file_name[] = "../ior_file";
 		if (!write_ior_to_file(file_name, ior))
 		{
 			std::cerr << "Cannot write to IOR to output file." << std::endl;

@@ -11,7 +11,7 @@ int main(int argc, char * argv[])
 		CORBA::ORB_var orb = CORBA::ORB_init(argc, argv, "toasterORB");
 
 		// File where object's IOR is written to.
-		const ACE_TCHAR * ior = ACE_TEXT("file://ior_file");
+		const ACE_TCHAR * ior = ACE_TEXT("file://../ior_file");
 		// Creates toaster object with IOR from file. The naming service should
 		// be used for this.
 		CORBA::Object_var toaster_object = orb->string_to_object(ior);
