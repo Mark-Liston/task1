@@ -24,11 +24,19 @@ catch (e)
 // to that of the java project for the duration of the callback.
 function doJava(callback)
 {
-	// Saves current directory to go back after executing java.
-	let prevDir = path.dirname(fileURLToPath(import.meta.url));
-	process.chdir(prevDir + "/../toaster/java/Client");
-	callback();
-	process.chdir(prevDir);
+	try
+	{
+		// Saves current directory to go back after executing java.
+		let prevDir = path.dirname(fileURLToPath(import.meta.url));
+		process.chdir(prevDir + "/../toaster/java/Client");
+		callback();
+		process.chdir(prevDir);
+	}
+	catch (e)
+	{
+		console.log("Disconnected from CORBA server, exiting...");
+		process.exit();
+	}
 }
 
 export function insertToast(callback)

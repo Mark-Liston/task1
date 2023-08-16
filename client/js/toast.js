@@ -11,7 +11,7 @@ $(document).ready(() =>
 				$("#toastColour").text(response + "%");
 			}
 		});
-	}, 500);
+	}, 100);
 });
 
 function showMessage(message)
@@ -52,8 +52,7 @@ function insertToast()
 	});
 }
 
-// TODO: Gets toast colour and returns corresponding textual description.
-function getToastState(callback)
+function writeToastStatus(callback)
 {
 	$.ajax(
 	{
@@ -79,7 +78,7 @@ function getToastState(callback)
 				toastStatus = "Overtoasted."
 			}
 
-			callback(toastStatus);
+			$("#toastStatus").text(toastStatus);
 		}
 	});
 }
@@ -93,14 +92,12 @@ function ejectToast()
 		success: () =>
 		{
 			showMessage("Ejected toast!");
-
-			getToastState((toastState) =>
-			{
-				$("#toastStatus").text(toastState);
-			});
+			writeToastStatus();
 		},
 		error: (response) =>
 		{
+			writeToastStatus();
+
 			if (response.responseText == "Nothing to eject")
 			{
 				showError("Toast has not been inserted. Insert toast to " +
