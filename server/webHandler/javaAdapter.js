@@ -39,6 +39,14 @@ export function insertToast(callback)
 	});
 }
 
+export function ejectToast(callback)
+{
+	doJava(() =>
+	{
+		callback(toaster.eject_toastSync());
+	});
+}
+
 export function getToastColour(callback)
 {
 	doJava(() =>

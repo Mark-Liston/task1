@@ -14,6 +14,7 @@ handle["/reqFile"] = requestHandlers.reqFile;
 
 // Toaster operations.
 handle["/insertToast"] = requestHandlers.reqInsertToast;
+handle["/ejectToast"] = requestHandlers.reqEjectToast;
 handle["/getToastColour"] = requestHandlers.reqGetToastColour;
 
 // Passes request to handle (and route function) to server.

@@ -82,6 +82,24 @@ export function reqInsertToast(request, response)
 	});
 }
 
+export function reqEjectToast(request, response)
+{
+	console.log("Request handler called: 'reqEjectToast'");
+
+	ja.ejectToast((success) =>
+	{
+		if (success)
+		{
+			response.writeHead(200, {"Content-Type": "text/plain"});
+		}
+		else
+		{
+			response.writeHead(403, {"Content-Type": "text/plain"});
+		}
+		response.end(success.toString());
+	});
+}
+
 export function reqGetToastColour(request, response)
 {
 	console.log("Request handler called: 'reqGetToastColour'");

@@ -28,10 +28,9 @@ function insertToast()
 		url: "/insertToast",
 		success: (response) =>
 		{
-			//coursePlan_Edited = JSON.parse(response);
 			showMessage("Inserted toast!");
 		},
-		error: (response) =>
+		error: () =>
 		{
 			showMessage("Toast has already been inserted. Eject the current " +
 				"toast to insert again.");
@@ -41,6 +40,17 @@ function insertToast()
 
 function ejectToast()
 {
-	$("#message").show();
-	$("#message").text("Ejected toast!");
+	$.ajax(
+	{
+		type: "POST",
+		url: "/ejectToast",
+		success: (response) =>
+		{
+			showMessage("Ejected toast!");
+		},
+		error: () =>
+		{
+			showMessage("Toast has not been inserted. Insert toast to eject.");
+		}
+	});
 }
