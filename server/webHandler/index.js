@@ -11,7 +11,10 @@ let handle = {};
 handle["/"] = requestHandlers.reqStart;
 handle["/start"] = requestHandlers.reqStart;
 handle["/reqFile"] = requestHandlers.reqFile;
+
+// Toaster operations.
 handle["/insertToast"] = requestHandlers.reqInsertToast;
+handle["/getToastColour"] = requestHandlers.reqGetToastColour;
 
 // Passes request to handle (and route function) to server.
 server.startServer(router.route, handle);

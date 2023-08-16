@@ -3,6 +3,7 @@
 import * as fetch from "node-fetch";
 import * as fs from "fs";
 import { request } from "http";
+import * as ja from "./javaAdapter.js";
 
 export function reqStart(request, response)
 {
@@ -65,7 +66,20 @@ export function reqFile(path, response)
 
 export function reqInsertToast(request, response)
 {
-	console.log("insert");
+	console.log("Request handler called: 'reqInsertToast'");
+
 	response.writeHead(200, {"Content-Type": "text/plain"});
 	response.end("Inserted toast!");
+}
+
+export function reqGetToastColour(request, response)
+{
+	console.log("Request handler called: 'reqGetToastColour'");
+
+	ja.getToastColour((toastColour) =>
+	{
+		console.log(toastColour);
+		response.writeHead(200, {"Content-Type": "text/plain"});
+		response.end(toastColour.toString());
+	});
 }

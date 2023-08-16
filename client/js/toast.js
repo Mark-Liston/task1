@@ -1,3 +1,19 @@
+$(document).ready(() =>
+{
+	setInterval(() =>
+	{
+		$.ajax(
+		{
+			type: "POST",
+			url: "/getToastColour",
+			success: (response) =>
+			{
+				$("#toastColour").text(response + "%");
+			}
+		});
+	}, 500);
+});
+
 function showMessage(message)
 {
 	$("#message").show();
@@ -10,12 +26,12 @@ function insertToast()
 	{
 		type: "POST",
 		url: "/insertToast",
-		success: function(response)
+		success: (response) =>
 		{
 			//coursePlan_Edited = JSON.parse(response);
 			showMessage("Inserted toast!");
 		},
-		error: function(response)
+		error: (response) =>
 		{
 			showMessage(response.responseText);
 		}
