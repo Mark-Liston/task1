@@ -31,6 +31,14 @@ function doJava(callback)
 	process.chdir(prevDir);
 }
 
+export function insertToast(callback)
+{
+	doJava(() =>
+	{
+		callback(toaster.insert_toastSync());
+	});
+}
+
 export function getToastColour(callback)
 {
 	doJava(() =>

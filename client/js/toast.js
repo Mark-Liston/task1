@@ -17,7 +17,7 @@ $(document).ready(() =>
 function showMessage(message)
 {
 	$("#message").show();
-	$("#message").text("Inserted toast!");
+	$("#message").text(message);
 }
 
 function insertToast()
@@ -33,7 +33,8 @@ function insertToast()
 		},
 		error: (response) =>
 		{
-			showMessage(response.responseText);
+			showMessage("Toast has already been inserted. Eject the current " +
+				"toast to insert again.");
 		}
 	});
 }

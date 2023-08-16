@@ -68,8 +68,18 @@ export function reqInsertToast(request, response)
 {
 	console.log("Request handler called: 'reqInsertToast'");
 
-	response.writeHead(200, {"Content-Type": "text/plain"});
-	response.end("Inserted toast!");
+	ja.insertToast((success) =>
+	{
+		if (success)
+		{
+			response.writeHead(200, {"Content-Type": "text/plain"});
+		}
+		else
+		{
+			response.writeHead(403, {"Content-Type": "text/plain"});
+		}
+		response.end(success.toString());
+	});
 }
 
 export function reqGetToastColour(request, response)
@@ -78,7 +88,6 @@ export function reqGetToastColour(request, response)
 
 	ja.getToastColour((toastColour) =>
 	{
-		console.log(toastColour);
 		response.writeHead(200, {"Content-Type": "text/plain"});
 		response.end(toastColour.toString());
 	});
