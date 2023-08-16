@@ -61,5 +61,11 @@ export function reqFile(path, response)
 			response.end();
 		}
 	});
+}
 
+export function reqInsertToast(request, response)
+{
+	console.log("insert");
+	response.writeHead(200, {"Content-Type": "text/plain"});
+	response.end("Inserted toast!");
 }

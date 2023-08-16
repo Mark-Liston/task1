@@ -16,6 +16,11 @@
             <artifactId>jboss-rmi-api_1.0_spec</artifactId>
             <version>1.0.6.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-jdk14</artifactId>
+            <version>1.7.14</version>
+        </dependency>
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
