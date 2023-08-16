@@ -20,19 +20,19 @@ void Toaster::do_toast()
 	// until toast is ejected.
 	for (toast_colour = 0; toast_colour < max_toast_colour && is_toasting; ++toast_colour)
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(500));
-	}
-
-	// If toast_colour reaches max_toast_colour, the toaster catches on fire
-	// and cannot function.
-	if (toast_colour >= max_toast_colour)
-	{
-		//throw Toaster::On_Fire();
+		std::this_thread::sleep_for(std::chrono::milliseconds(100));
 	}
 }
 
 bool Toaster::insert_toast()
 {
+	// If toast_colour reaches max_toast_colour, the toaster catches on fire
+	// and cannot function.
+	if (toast_colour >= max_toast_colour)
+	{
+		throw Task1::Toaster::On_Fire();
+	}
+
 	// Can't insert toast if the toaster is already toasting.
 	if (is_toasting)
 	{
@@ -58,9 +58,9 @@ bool Toaster::eject_toast()
 {
 	// If toast_colour is max_toast_colour, the toaster must be on fire and
 	// cannot function.
-	if (toast_colour >= max_toast_colour
+	if (toast_colour >= max_toast_colour)
 	{
-		//throw Toaster::On_Fire();
+		throw Task1::Toaster::On_Fire();
 	}
 
 	if (!is_toasting)

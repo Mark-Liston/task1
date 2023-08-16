@@ -68,17 +68,17 @@ export function reqInsertToast(request, response)
 {
 	console.log("Request handler called: 'reqInsertToast'");
 
-	ja.insertToast((success) =>
+	ja.insertToast((error) =>
 	{
-		if (success)
+		if (error)
 		{
-			response.writeHead(200, {"Content-Type": "text/plain"});
+			response.writeHead(403, {"Content-Type": "text/plain"});
+			response.end(error.message);
 		}
 		else
 		{
-			response.writeHead(403, {"Content-Type": "text/plain"});
+			response.end();
 		}
-		response.end(success.toString());
 	});
 }
 
@@ -86,17 +86,17 @@ export function reqEjectToast(request, response)
 {
 	console.log("Request handler called: 'reqEjectToast'");
 
-	ja.ejectToast((success) =>
+	ja.ejectToast((error) =>
 	{
-		if (success)
+		if (error)
 		{
-			response.writeHead(200, {"Content-Type": "text/plain"});
+			response.writeHead(403, {"Content-Type": "text/plain"});
+			response.end(error.message);
 		}
 		else
 		{
-			response.writeHead(403, {"Content-Type": "text/plain"});
+			response.end();
 		}
-		response.end(success.toString());
 	});
 }
 

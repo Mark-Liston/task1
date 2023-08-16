@@ -35,7 +35,21 @@ export function insertToast(callback)
 {
 	doJava(() =>
 	{
-		callback(toaster.insert_toastSync());
+		try
+		{
+			if (toaster.insert_toastSync())
+			{
+				callback(null);
+			}
+			else
+			{
+				callback(new Error("Already toasting"));
+			}
+		}
+		catch (e)
+		{
+			callback(new Error("On fire"));
+		}
 	});
 }
 
@@ -43,7 +57,21 @@ export function ejectToast(callback)
 {
 	doJava(() =>
 	{
-		callback(toaster.eject_toastSync());
+		try
+		{
+			if (toaster.eject_toastSync())
+			{
+				callback(null);
+			}
+			else
+			{
+				callback(new Error("Nothing to eject"));
+			}
+		}
+		catch (e)
+		{
+			callback(new Error("On fire"));
+		}
 	});
 }
 
