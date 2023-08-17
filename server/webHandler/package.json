@@ -1,7 +1,7 @@
 {
 	"type": "module",
-  "dependencies": {
-    "java": "^0.13.0",
-    "node-fetch": "^3.3.2"
-  }
+	"dependencies": {
+		"java": "^0.13.0",
+		"node-fetch": "^3.3.2"
+	}
 }
