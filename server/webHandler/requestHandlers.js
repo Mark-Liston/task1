@@ -20,7 +20,7 @@ export function reqStart(request, response)
 		else
 		{
 			response.writeHead(404, {"Content-Type": "text/html"});
-			reponse.write("Start file not found");
+			response.write("Start file not found");
 			console.log(error.message);
 			response.end();
 		}
